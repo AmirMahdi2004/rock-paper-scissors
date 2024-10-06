@@ -2,41 +2,43 @@ import random
 
 username = input("Enter your User name : ")
 skg = ['S', 'K', 'G']
-us = str
-u, s, i, m = 0,0,0,0
+player_selection = str
+player_points, system_score, equality, i = 0, 0, 0, 0
 while i >= 0:
-    us = input("Enter your choice : ")
-    sis = random.choice(skg)
-    print(f"{username} : {us} sis : {sis} ")
-    if u > 2 or s > 2:
+    player_selection = input("Enter your choice : ")
+    system_selection = random.choice(skg)
+    print(f"{username} : {player_selection} system : {system_selection} ")
+    if player_points > 2 or system_score > 2:
         break
-    elif us == sis:
-        m += 1
-        print("mosav")
-    elif us == "G" and sis == "S":
-        s += 1
+    elif player_selection == system_selection:
+        equality += 1
+        print("equality")
+    elif player_selection == "G" and system_selection == "S":
+        system_score += 1
         print("los")
-    elif us == "S" and sis == "K":
-        s += 1
+    elif player_selection == "S" and system_selection == "K":
+        system_score += 1
         print("los")
-    elif us == "K" and sis == "G":
-        s += 1
+    elif player_selection == "K" and system_selection == "G":
+        system_score += 1
         print("los")
-    elif us == "S" and sis == "G":
-        u += 1
+    elif player_selection == "S" and system_selection == "G":
+        player_points += 1
         print("win")
-    elif us == "K" and sis == "S":
-        u += 1
+    elif player_selection == "K" and system_selection == "S":
+        player_points += 1
         print("win")
-    elif us == "G" and sis == "K":
-        u += 1
+    elif player_selection == "G" and system_selection == "K":
+        player_points += 1
         print("win")
-    elif us != "G" or us != "S" or us != "K":
+    elif player_selection != "G" or player_selection != "S" or player_selection != "K":
         print("wrong choice try agin Please S or K or G ")
         i = 0
     i += 1
 
-if u > s:
-    print(f"{username} winner \n you point :{u}  Sistem point :{s} mosav :{m} rund :{i}")
+if player_points > system_score:
+    print(
+        f"{username} victory \n your score :{player_points}  System score :{system_score} equality :{equality} round :{i}")
 else:
-    print(f"{username} los \nyou point :{u}  Sistem point :{s} mosav :{m} rund :{i}")
+    print(
+        f"{username} lost \nyour score :{player_points}  System score :{system_score} equality :{equality} round :{i}")
